@@ -19,7 +19,7 @@ Recent contributions:
 
 **Repo:** [neovim/neovim](https://github.com/neovim/neovim) (103k ⭐)  
 **Issue:** [#39868 docs: guidance for vim.pos, vim.range](https://github.com/neovim/neovim/issues/39868)  
-**My fix:** [docs/pos-range-guidance](https://github.com/kukirin-ui/neovim/commit/85811a9)
+**My fix:** [docs/pos-range-guidance](https://github.com/kukirin-ui/neovim/commit/85811a9dab18c61fa810d71c244790f99a43bf2a)
 
 </td></tr></table>
 
