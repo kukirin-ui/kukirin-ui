@@ -1,4 +1,4 @@
-Hi, I'm kukirin.
+Hi, I'm Alen.
 
 I mostly mess around with Termux, Android and Linux. On XDA I go by termuxSolutions and answer questions about adb, fastboot, flashing, recoveries and getting Linux onto phones and tablets.
 
