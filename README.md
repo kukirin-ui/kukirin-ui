@@ -40,4 +40,23 @@ I also fixed `vim.range.to_mark()`, which said it returned an extmark range. It 
 
 The PR was closed without merging, but the fix is still there if anyone wants it.
 
+## Spotlight: Zig on old Android kernels (Termux)
+
+<table><tr><td>
+
+**Repo:** [termux/termux-packages](https://github.com/termux/termux-packages) (17k ⭐)  
+**Issue:** [#20783 Running some zig commands gives "illegal instruction"](https://github.com/termux/termux-packages/issues/20783)  
+**My fix:** [#32600](https://github.com/termux/termux-packages/pull/32600)
+
+</td></tr></table>
+
+On aarch64, Zig reads CPU ID registers with raw `mrs`. Kernels older than 4.11 don't emulate that for userspace, so some zig commands (like `zig run`) died with "Illegal instruction". I made it check `HWCAP_CPUID` first and fall back to the baseline CPU when it's missing.
+
+✅ Patch applies to Zig 0.16.0, `zig ast-check` passed  
+✅ Cross-compiled aarch64 test still detects `cortex_a53` under qemu  
+✅ ncdu2 and zls build fine with the patched Zig  
+✅ On a tester's real 4.9 device the "Illegal instruction" crash is gone
+
+The same device then stopped on `statx`, a syscall that only exists from kernel 4.11. Zig dropped support for those kernels on purpose, and a maintainer preferred a full fix or none, so I closed the PR rather than carry a half fix.
+
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions) or on [XDA](https://xdaforums.com/m/termuxsolutions.13482532/).
