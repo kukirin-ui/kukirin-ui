@@ -59,4 +59,23 @@ On aarch64, Zig reads CPU ID registers with raw `mrs`. Kernels older than 4.11 d
 
 The same device then stopped on `statx`, a syscall that only exists from kernel 4.11. Zig dropped support for those kernels on purpose, and a maintainer preferred a full fix or none, so I closed the PR rather than carry a half fix.
 
+## Spotlight: Bootstrap card docs
+
+<table><tr><td>
+
+**Repo:** [twbs/bootstrap](https://github.com/twbs/bootstrap) (175k ⭐)  
+**Issue:** [#43094 Style rules for `.card-title` are missing](https://github.com/twbs/bootstrap/issues/43094)  
+**My fix:** [#43100](https://github.com/twbs/bootstrap/pull/43100)
+
+</td></tr></table>
+
+In v6 `.card-title` and `.card-text` stopped adding styles on purpose, but the card page didn't say so, so it looked like CSS was missing. I tracked down the commit that removed them and updated the docs to say both classes are hooks only.
+
+✅ `docs-mdx` and `docs-md` lint passed  
+✅ Prettier check passed  
+✅ `css-lint` passed  
+✅ Docs only, no CSS or JS changed
+
+A maintainer went with a shorter one-sentence version in [#43103](https://github.com/twbs/bootstrap/pull/43103), merged the same day, so mine was closed.
+
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions) or on [XDA](https://xdaforums.com/m/termuxsolutions.13482532/).
