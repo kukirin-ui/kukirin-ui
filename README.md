@@ -78,4 +78,21 @@ In v6 `.card-title` and `.card-text` stopped adding styles on purpose, but the c
 
 A maintainer went with a shorter one-sentence version in [#43103](https://github.com/twbs/bootstrap/pull/43103), merged the same day, so mine was closed.
 
+## Spotlight: OpenClaw gateway under Termux proot
+
+<table><tr><td>
+
+**Repo:** [openclaw/openclaw](https://github.com/openclaw/openclaw) (392k ⭐)  
+**Issue:** [#171385 GatewayLockNamespaceError in Termux proot Ubuntu](https://github.com/openclaw/openclaw/issues/171385)  
+**My comment:** [diagnosis](https://github.com/openclaw/openclaw/issues/171385#issuecomment-6158241377)
+
+</td></tr></table>
+
+From 2026.10.x the gateway refused to start inside proot-distro Ubuntu on Termux. I traced it to the new PID namespace check failing under proot, suggested pinning the last working version as a stopgap, and detecting proot as the long-term fix.
+
+✅ The failure was in the PID namespace probe under proot  
+✅ Fixed upstream in [#174974](https://github.com/openclaw/openclaw/pull/174974)
+
+The maintainer found the real mechanism: proot fakes `/proc/self/ns/pid`, so `stat()` on it fails while `readlink()` works. The fix reads the namespace from `readlink()`.
+
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions) or on [XDA](https://xdaforums.com/m/termuxsolutions.13482532/).
