@@ -8,10 +8,18 @@ Stuff I made:
 - [Nullcloud](https://github.com/kukirin-ui/Nullcloud): run llama.cpp on your phone and chat from any browser, offline
 
 Recent contributions:
-- termux/termux-packages: [#32600](https://github.com/termux/termux-packages/pull/32600)
-- tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723)
-- voidcosmos/npkill: [#275](https://github.com/voidcosmos/npkill/pull/275)
+
+Merged:
 - LargeModGames/spotatui: [#860](https://github.com/LargeModGames/spotatui/pull/860), [#861](https://github.com/LargeModGames/spotatui/pull/861)
+- m87techlabs/slmkit: [#17](https://github.com/m87techlabs/slmkit/pull/17)
+- vault-genome/vaultgenome-core: [#74](https://github.com/vault-genome/vaultgenome-core/pull/74), [#80](https://github.com/vault-genome/vaultgenome-core/pull/80)
+
+In review:
+- TheAlgorithms/Python: [#15582](https://github.com/TheAlgorithms/Python/pull/15582) (approved)
+- tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723), [#24727](https://github.com/tldr-pages/tldr/pull/24727), [#24728](https://github.com/tldr-pages/tldr/pull/24728), [#24735](https://github.com/tldr-pages/tldr/pull/24735)
+- FuelLabs/sway: [#7751](https://github.com/FuelLabs/sway/pull/7751)
+- huginn/huginn: [#3793](https://github.com/huginn/huginn/pull/3793)
+- voidcosmos/npkill: [#275](https://github.com/voidcosmos/npkill/pull/275)
 
 ## Spotlight: neovim `vim.pos` / `vim.range` docs
 
