@@ -1,6 +1,6 @@
 Hi, I'm Alen.
 
-I mostly mess around with Termux, Android and Linux. On XDA I go by termuxSolutions and answer questions about adb, fastboot, flashing, recoveries and getting Linux onto phones and tablets.
+I build offline-first Android apps and run local AI on phones. On XDA I go by termuxSolutions and answer questions about adb, fastboot, flashing, recoveries and getting Linux onto phones and tablets.
 
 Stuff I made:
 - [termuxSolutions](https://github.com/kukirin-ui/termuxSolutions): my XDA answers in one place
@@ -105,3 +105,4 @@ From 2026.10.x the gateway refused to start inside proot-distro Ubuntu on Termux
 The maintainer found the real mechanism: proot fakes `/proc/self/ns/pid`, so `stat()` on it fails while `readlink()` works. The fix reads the namespace from `readlink()`.
 
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions) or on [XDA](https://xdaforums.com/m/termuxsolutions.13482532/).
+
