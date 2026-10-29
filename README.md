@@ -104,5 +104,5 @@ From 2026.10.x the gateway refused to start inside proot-distro Ubuntu on Termux
 
 The maintainer found the real mechanism: proot fakes `/proc/self/ns/pid`, so `stat()` on it fails while `readlink()` works. The fix reads the namespace from `readlink()`.
 
-Find me on X as [@termuxSolutions](https://x.com/termuxSolutions) or on [XDA](https://xdaforums.com/m/termuxsolutions.13482532/).
+Find me on X as [@termuxSolutions](https://x.com/termuxSolutions), on the [XDA forums](https://xdaforums.com/m/termuxsolutions.13482532/) and on [XDA Developers](https://www.xda-developers.com/profile/FK173617/).
 
