@@ -4,7 +4,8 @@ I mostly mess around with Termux, Android and Linux. On XDA I go by termuxSoluti
 
 Stuff I made:
 - [termuxSolutions](https://github.com/kukirin-ui/termuxSolutions): my XDA answers in one place
-- [Meridian](https://github.com/kukirin-ui/Meridian): an Android command deck for Termux
+- [Meridian Family](https://github.com/kukirin-ui/meridian-showcase): offline-first Android apps with local AI, built entirely on a phone
+- [Meridian (legacy)](https://github.com/kukirin-ui/Meridian): the first version, an Android command deck for Termux
 - [Nullcloud](https://github.com/kukirin-ui/Nullcloud): run llama.cpp on your phone and chat from any browser, offline
 
 Recent contributions:
