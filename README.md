@@ -171,7 +171,7 @@ On Termux, Node reports `process.platform` as `android`, so the file service loo
 ✅ `npm test` and `tsc` passed  
 ✅ eslint clean on changed files  
 
-Closed after no response. Fix remains available.
+Merged upstream by the npkill maintainer on 1 Nov 2026 ([#275](https://github.com/voidcosmos/npkill/pull/275)).
 
 ## Spotlight: velikiy-moguchiy Linux CLI release
 
