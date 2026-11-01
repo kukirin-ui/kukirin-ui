@@ -16,11 +16,9 @@ Merged:
 - vault-genome/vaultgenome-core: [#74](https://github.com/vault-genome/vaultgenome-core/pull/74), [#80](https://github.com/vault-genome/vaultgenome-core/pull/80)
 
 In review:
-- TheAlgorithms/Python: [#15582](https://github.com/TheAlgorithms/Python/pull/15582) (approved)
-- tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723), [#24727](https://github.com/tldr-pages/tldr/pull/24727), [#24728](https://github.com/tldr-pages/tldr/pull/24728), [#24735](https://github.com/tldr-pages/tldr/pull/24735)
-- FuelLabs/sway: [#7751](https://github.com/FuelLabs/sway/pull/7751)
-- huginn/huginn: [#3793](https://github.com/huginn/huginn/pull/3793)
-- voidcosmos/npkill: [#275](https://github.com/voidcosmos/npkill/pull/275)
+- tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723), [#24727](https://github.com/tldr-pages/tldr/pull/24727)
+- helix-editor/helix: [#16429](https://github.com/helix-editor/helix/pull/16429)
+- ggml-org/llama.cpp: [#31483](https://github.com/ggml-org/llama.cpp/pull/31483)
 
 ## Spotlight: neovim `vim.pos` / `vim.range` docs
 
@@ -138,6 +136,75 @@ Closed after no maintainer response for two weeks. Fix remains in the branch.
 ✅ Only the one algorithm file + config changed  
 
 Closed after no further review. The change is still available.
+
+## Spotlight: Sway integer literal suffixes
+
+<table><tr><td>
+
+**Repo:** [FuelLabs/sway](https://github.com/FuelLabs/sway)  
+**Issue:** [#2128](https://github.com/FuelLabs/sway/issues/2128)  
+**My fix:** [#7751](https://github.com/FuelLabs/sway/pull/7751)
+
+</td></tr></table>
+
+Added a short section to the Sway book explaining integer literal type suffixes (`u8`, `u16`, etc., with or without underscore).
+
+✅ Docs only, follows project standards  
+✅ Linked to the issue  
+
+Closed after no maintainer response. The docs change is still in the branch.
+
+## Spotlight: npkill Android platform
+
+<table><tr><td>
+
+**Repo:** [voidcosmos/npkill](https://github.com/voidcosmos/npkill)  
+**Issue:** [#274](https://github.com/voidcosmos/npkill/issues/274)  
+**My fix:** [#275](https://github.com/voidcosmos/npkill/pull/275)
+
+</td></tr></table>
+
+On Termux, Node reports `process.platform` as `android`, so the file service lookup returned undefined and npkill crashed at startup. Mapped android to the Unix file service.
+
+✅ New test fakes `platform = 'android'` and checks the unix service  
+✅ `npm test` and `tsc` passed  
+✅ eslint clean on changed files  
+
+Closed after no response. Fix remains available.
+
+## Spotlight: velikiy-moguchiy Linux CLI release
+
+<table><tr><td>
+
+**Repo:** [zigansh1n/velikiy-moguchiy](https://github.com/zigansh1n/velikiy-moguchiy)  
+**Issue:** [#39](https://github.com/zigansh1n/velikiy-moguchiy/issues/39)  
+**My fix:** [#69](https://github.com/zigansh1n/velikiy-moguchiy/pull/69)
+
+</td></tr></table>
+
+Added a Linux x86_64 job to the release workflow: builds the CLI, packs it as tar.gz, attaches it with SHA256SUMS, and runs basic checks before upload.
+
+✅ Test run in fork all green  
+✅ Binary only needs glibc (libopus static, SQLite bundled)  
+
+Closed after no response. The release job is still in the branch.
+
+## Spotlight: Atoll Linux build
+
+<table><tr><td>
+
+**Repo:** [amadoubaui/atoll](https://github.com/amadoubaui/atoll)  
+**Issue:** [#1](https://github.com/amadoubaui/atoll/issues/1)  
+**My fix:** [#6](https://github.com/amadoubaui/atoll/pull/6)
+
+</td></tr></table>
+
+Added a Linux build script that packs the Electron app as tar.gz with desktop file, icon and notes. CI runs UI tests under xvfb and uploads the artifact.
+
+✅ Local UI tests 19/19 under xvfb  
+✅ Packaged app starts with correct fuses  
+
+Closed after no maintainer response. The build script remains available.
 
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions), on the [XDA forums](https://xdaforums.com/m/termuxsolutions.13482532/) and on [XDA Developers](https://www.xda-developers.com/profile/FK173617/).
 
