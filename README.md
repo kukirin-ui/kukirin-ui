@@ -104,5 +104,40 @@ From 2026.10.x the gateway refused to start inside proot-distro Ubuntu on Termux
 
 The maintainer found the real mechanism: proot fakes `/proc/self/ns/pid`, so `stat()` on it fails while `readlink()` works. The fix reads the namespace from `readlink()`.
 
+## Spotlight: navidrome empty nested playlist groups
+
+<table><tr><td>
+
+**Repo:** [navidrome/navidrome](https://github.com/navidrome/navidrome)  
+**Issue:** [#6316](https://github.com/navidrome/navidrome/issues/6316)  
+**My fix:** [#6349](https://github.com/navidrome/navidrome/pull/6349)
+
+</td></tr></table>
+
+Smart playlists with an empty nested group were accepted on save but later failed to load because `omitempty` dropped the empty slice. Fixed marshaling so empty groups stay as `[]`.
+
+✅ New table-driven tests round-trip empty nested groups  
+✅ `go test ./model/criteria/...` passed  
+✅ Full suite and lint passed  
+
+Closed after no maintainer response for two weeks. Fix remains in the branch.
+
+## Spotlight: TheAlgorithms/Python call-non-callable
+
+<table><tr><td>
+
+**Repo:** [TheAlgorithms/Python](https://github.com/TheAlgorithms/Python)  
+**Issue:** part of [#15187](https://github.com/TheAlgorithms/Python/issues/15187)  
+**My fix:** [#15582](https://github.com/TheAlgorithms/Python/pull/15582)
+
+</td></tr></table>
+
+`call-non-callable` diagnostic left in a neural net layer because activation started as `None`. Resolved the default in `__init__` and annotated the parameter so the ignore could be removed.
+
+✅ Tests and type checks passed  
+✅ Only the one algorithm file + config changed  
+
+Closed after no further review. The change is still available.
+
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions), on the [XDA forums](https://xdaforums.com/m/termuxsolutions.13482532/) and on [XDA Developers](https://www.xda-developers.com/profile/FK173617/).
 
