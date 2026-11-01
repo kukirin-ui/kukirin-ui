@@ -14,6 +14,7 @@ Merged:
 - LargeModGames/spotatui: [#860](https://github.com/LargeModGames/spotatui/pull/860), [#861](https://github.com/LargeModGames/spotatui/pull/861)
 - m87techlabs/slmkit: [#17](https://github.com/m87techlabs/slmkit/pull/17)
 - vault-genome/vaultgenome-core: [#74](https://github.com/vault-genome/vaultgenome-core/pull/74), [#80](https://github.com/vault-genome/vaultgenome-core/pull/80)
+- voidcosmos/npkill: [#275](https://github.com/voidcosmos/npkill/pull/275)
 
 In review:
 - tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723), [#24727](https://github.com/tldr-pages/tldr/pull/24727)
