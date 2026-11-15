@@ -4,22 +4,68 @@ I build offline-first Android apps and run local AI on phones. On XDA I go by te
 
 Stuff I made:
 - [termuxSolutions](https://github.com/kukirin-ui/termuxSolutions): my XDA answers in one place
-- [Meridian Family](https://github.com/kukirin-ui/meridian-showcase): offline-first Android apps with local AI, built entirely on a phone
+- [Meridian](https://kukirin-ui.github.io/meridian-site/): a connected Android ecosystem of five apps, with releases in [meridian-releases](https://github.com/kukirin-ui/meridian-releases)
 - [Meridian (legacy)](https://github.com/kukirin-ui/Meridian): the first version, an Android command deck for Termux
 - [Nullcloud](https://github.com/kukirin-ui/Nullcloud): run llama.cpp on your phone and chat from any browser, offline
 
 Recent contributions:
 
 Merged:
+- ggml-org/llama.cpp: [#32271](https://github.com/ggml-org/llama.cpp/pull/32271)
+- navidrome/navidrome: [#6438](https://github.com/navidrome/navidrome/pull/6438)
+- marktext/marktext: [#5778](https://github.com/marktext/marktext/pull/5778), [#5785](https://github.com/marktext/marktext/pull/5785)
+- huginn/huginn: [#3793](https://github.com/huginn/huginn/pull/3793)
+- tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723), [#24728](https://github.com/tldr-pages/tldr/pull/24728), [#24735](https://github.com/tldr-pages/tldr/pull/24735)
+- voidcosmos/npkill: [#275](https://github.com/voidcosmos/npkill/pull/275)
 - LargeModGames/spotatui: [#860](https://github.com/LargeModGames/spotatui/pull/860), [#861](https://github.com/LargeModGames/spotatui/pull/861)
 - m87techlabs/slmkit: [#17](https://github.com/m87techlabs/slmkit/pull/17)
 - vault-genome/vaultgenome-core: [#74](https://github.com/vault-genome/vaultgenome-core/pull/74), [#80](https://github.com/vault-genome/vaultgenome-core/pull/80)
-- voidcosmos/npkill: [#275](https://github.com/voidcosmos/npkill/pull/275)
 
 In review:
-- tldr-pages/tldr: [#24723](https://github.com/tldr-pages/tldr/pull/24723), [#24727](https://github.com/tldr-pages/tldr/pull/24727)
-- helix-editor/helix: [#16429](https://github.com/helix-editor/helix/pull/16429)
 - ggml-org/llama.cpp: [#31483](https://github.com/ggml-org/llama.cpp/pull/31483)
+- termux/termux-app: [#5424](https://github.com/termux/termux-app/pull/5424)
+- termux/termux-api: [#932](https://github.com/termux/termux-api/pull/932)
+- tldr-pages/tldr: [#24727](https://github.com/tldr-pages/tldr/pull/24727)
+- helix-editor/helix: [#16429](https://github.com/helix-editor/helix/pull/16429)
+- heygen-com/hyperframes: [#5791](https://github.com/heygen-com/hyperframes/pull/5791)
+
+## Spotlight: npkill Android platform
+
+<table><tr><td>
+
+**Repo:** [voidcosmos/npkill](https://github.com/voidcosmos/npkill)  
+**Issue:** [#274](https://github.com/voidcosmos/npkill/issues/274)  
+**My fix:** [#275](https://github.com/voidcosmos/npkill/pull/275)
+
+</td></tr></table>
+
+On Termux, Node reports `process.platform` as `android`, so the file service lookup returned undefined and npkill crashed at startup. Mapped android to the Unix file service.
+
+✅ New test fakes `platform = 'android'` and checks the unix service  
+✅ `npm test` and `tsc` passed  
+✅ eslint clean on changed files  
+
+Merged upstream by the npkill maintainer on 1 Nov 2026 ([#275](https://github.com/voidcosmos/npkill/pull/275)).
+
+## Spotlight: OpenClaw gateway under Termux proot
+
+<table><tr><td>
+
+**Repo:** [openclaw/openclaw](https://github.com/openclaw/openclaw) (392k ⭐)  
+**Issue:** [#171385 GatewayLockNamespaceError in Termux proot Ubuntu](https://github.com/openclaw/openclaw/issues/171385)  
+**My comment:** [diagnosis](https://github.com/openclaw/openclaw/issues/171385#issuecomment-6158241377)
+
+</td></tr></table>
+
+From 2026.10.x the gateway refused to start inside proot-distro Ubuntu on Termux. I traced it to the new PID namespace check failing under proot, suggested pinning the last working version as a stopgap, and detecting proot as the long-term fix.
+
+✅ The failure was in the PID namespace probe under proot  
+✅ Fixed upstream in [#174974](https://github.com/openclaw/openclaw/pull/174974)
+
+The maintainer found the real mechanism: proot fakes `/proc/self/ns/pid`, so `stat()` on it fails while `readlink()` works. The fix reads the namespace from `readlink()`.
+
+<details>
+<summary>Closed, not merged</summary>
 
 ## Spotlight: neovim `vim.pos` / `vim.range` docs
 
@@ -86,23 +132,6 @@ In v6 `.card-title` and `.card-text` stopped adding styles on purpose, but the c
 
 A maintainer went with a shorter one-sentence version in [#43103](https://github.com/twbs/bootstrap/pull/43103), merged the same day, so mine was closed.
 
-## Spotlight: OpenClaw gateway under Termux proot
-
-<table><tr><td>
-
-**Repo:** [openclaw/openclaw](https://github.com/openclaw/openclaw) (392k ⭐)  
-**Issue:** [#171385 GatewayLockNamespaceError in Termux proot Ubuntu](https://github.com/openclaw/openclaw/issues/171385)  
-**My comment:** [diagnosis](https://github.com/openclaw/openclaw/issues/171385#issuecomment-6158241377)
-
-</td></tr></table>
-
-From 2026.10.x the gateway refused to start inside proot-distro Ubuntu on Termux. I traced it to the new PID namespace check failing under proot, suggested pinning the last working version as a stopgap, and detecting proot as the long-term fix.
-
-✅ The failure was in the PID namespace probe under proot  
-✅ Fixed upstream in [#174974](https://github.com/openclaw/openclaw/pull/174974)
-
-The maintainer found the real mechanism: proot fakes `/proc/self/ns/pid`, so `stat()` on it fails while `readlink()` works. The fix reads the namespace from `readlink()`.
-
 ## Spotlight: navidrome empty nested playlist groups
 
 <table><tr><td>
@@ -155,24 +184,6 @@ Added a short section to the Sway book explaining integer literal type suffixes 
 
 Closed after no maintainer response. The docs change is still in the branch.
 
-## Spotlight: npkill Android platform
-
-<table><tr><td>
-
-**Repo:** [voidcosmos/npkill](https://github.com/voidcosmos/npkill)  
-**Issue:** [#274](https://github.com/voidcosmos/npkill/issues/274)  
-**My fix:** [#275](https://github.com/voidcosmos/npkill/pull/275)
-
-</td></tr></table>
-
-On Termux, Node reports `process.platform` as `android`, so the file service lookup returned undefined and npkill crashed at startup. Mapped android to the Unix file service.
-
-✅ New test fakes `platform = 'android'` and checks the unix service  
-✅ `npm test` and `tsc` passed  
-✅ eslint clean on changed files  
-
-Merged upstream by the npkill maintainer on 1 Nov 2026 ([#275](https://github.com/voidcosmos/npkill/pull/275)).
-
 ## Spotlight: velikiy-moguchiy Linux CLI release
 
 <table><tr><td>
@@ -206,6 +217,8 @@ Added a Linux build script that packs the Electron app as tar.gz with desktop fi
 ✅ Packaged app starts with correct fuses  
 
 Closed after no maintainer response. The build script remains available.
+
+</details>
 
 Find me on X as [@termuxSolutions](https://x.com/termuxSolutions), on the [XDA forums](https://xdaforums.com/m/termuxsolutions.13482532/) and on [XDA Developers](https://www.xda-developers.com/profile/FK173617/).
 
